@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conversor de Link MobileMed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Conversor de Link MobileMed</h1>
+    <p>Cole o link do OneLaudos para gerar o link de download Zip do PMSBC.</p>
+    <label for="input-url" class="visualmente-oculto">URL do OneLaudos</label>
+    <input id="input-url" type="url" placeholder="https://onelaudos.mobilemed.com.br/viewer/XY/8476206/427" autocomplete="off">
+    <div class="acoes">
+      <button id="convert-btn">Converter</button>
+      <button id="clear-btn" class="secundario">Limpar</button>
+    </div>
+    <div id="result" class="resultado oculto">
+      <label for="output-url">URL gerada</label>
+      <input id="output-url" type="text" readonly>
+      <div class="acoes">
+        <button id="copy-btn" class="secundario">Copiar</button>
+        <a id="open-btn" class="link-botao" target="_blank" rel="noopener noreferrer">Abrir</a>
+      </div>
+    </div>
+    <p class="dica">Formato esperado: <code>https://onelaudos.mobilemed.com.br/viewer/XY/...</code></p>
+    <details>
+      <summary>Como funciona?</summary>
+      <p>Extraímos o identificador "XY" do link do OneLaudos e montamos o link de download: <code>https://pmsbc.mobilemed.com.br/client-api/patients/download/zip?studyUID=XY</code>.</p>
+    </details>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>
+
