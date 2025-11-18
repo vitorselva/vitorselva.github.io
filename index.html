@@ -1,102 +1,504 @@
-<html><head><title>Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body>
-<h3>Política de Privacidade do App Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica</h3><br>
-Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica não coleta nenhum dado pessoal de seus usuários.<br>
-    <h3>Proprietário e Controlador de Dados</h3><br>
-Selva Serviços Médicos - CNPJ 49.629.699/0001-42 - São Caetano do Sul - Brasil<br>
-E-mail de contato do proprietário: apptardy@gmail.com<br>
-    <h3>Tipos de dados coletados</h3><br>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica não coleta nenhum dado pessoal de seus usuários.<br>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma Digital de Renovação de Receitas Médicas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --brand: #2563eb;
+            --brand-dark: #1d4ed8;
+            --brand-soft: rgba(37, 99, 235, 0.12);
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #65748b;
+            --success: #22c55e;
+            --warning: #f97316;
+            --accent: #a855f7;
+        }
 
-<h3>Modo de processamento dos dados</h3><br>
-Métodos de processamento
-Não é coletado nenhum dado.
+        * {
+            box-sizing: border-box;
+        }
 
-<h3>Tempo de retenção</h3>
-Não é coletado nenhum dado.
-    
-    <h3>Os propósitos do processamento</h3><br>
-    Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica  não coleta nenhum dado pessoal.
-<br><h3>Os direitos dos usuários</h3>
-Os usuários podem exercer certos direitos sobre seus dados processados pelo proprietário.
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, rgba(79, 70, 229, 0.12), transparent 40%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
 
-Em particular, os usuários têm o direito de fazer o seguinte:
+        header,
+        section,
+        footer {
+            padding: 0 24px;
+        }
 
-Retire seu consentimento a qualquer momento. Os usuários têm o direito de retirar o consentimento, desde que tenham dado seu consentimento para o processamento de seus dados pessoais.
-Opor-se ao processamento de seus dados.Os usuários têm o direito de se opor ao processamento de seus dados se o processamento for realizado em uma base legal que não seja o consentimento. Mais detalhes são fornecidos na seção dedicada abaixo.
-Acessar seus dados.Os usuários têm o direito de saber se os Dados estão sendo processados ​​pelo Proprietário, obter informações sobre determinados aspectos do processamento e obter uma cópia do processamento de Dados em processamento.
-Verificar e buscar retificação. Os usuários têm o direito de verificar a exatidão de seus dados e solicitar que sejam atualizados ou corrigidos.
-Restringir o processamento de seus dados.Os usuários têm o direito, sob determinadas circunstâncias, de restringir o processamento de seus dados. Nesse caso, o proprietário não processará seus dados para qualquer finalidade que não seja armazená-los.
-Ter seus dados pessoais excluídos ou removidos. Os usuários têm o direito, sob determinadas circunstâncias, de obter o apagamento de seus dados do proprietário.
-<br>
-    <h3>Política de Cookies</h3><br>
-    Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica  não usa cookies.
+        .shell {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-Informações adicionais sobre coleta e processamento de dados
-Ação legal
-Os Dados Pessoais do Usuário podem ser usados para fins legais pelo Proprietário no Tribunal ou nas etapas que levam a possíveis ações legais decorrentes do uso indevido do Aplicativo ou dos Serviços relacionados.
-O Usuário declara estar ciente de que o Proprietário pode ser obrigado a revelar dados pessoais mediante solicitação das autoridades públicas.
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 0;
+        }
 
-Informações adicionais sobre os dados pessoais do usuário
-Além das informações contidas nesta política de privacidade, o Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica  pode fornecer ao usuário informações adicionais e contextuais sobre determinados serviços ou a coleta e processamento de dados pessoais mediante solicitação.
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--brand);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-Informações não contidas nesta política
-Mais detalhes sobre a coleta ou processamento de dados pessoais podem ser solicitados ao Proprietário a qualquer momento. Por favor, veja as informações de contato no início deste documento.
+        .logo span {
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
 
-Alterações a esta política de privacidade
-O proprietário se reserva o direito de fazer alterações a esta política de privacidade a qualquer momento, notificando seus usuários nesta página e possivelmente dentro do próprio usuário e / ou – na medida do possível técnica e legalmente – enviando um aviso aos usuários através de qualquer informação de contato disponível para o proprietário. É altamente recomendável verificar essa página com frequência, consultando a data da última modificação listada na parte inferior.
+        .cta-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
 
-Se as alterações afetarem as atividades de processamento realizadas com base no consentimento do usuário, o proprietário deverá coletar novo consentimento do usuário, quando necessário.
+        a,
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            text-decoration: none;
+        }
 
-Definições e referências legais
-Dados Pessoais (ou Dados)
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-Qualquer informação que direta, indiretamente ou em conexão com outras informações – incluindo um número de identificação pessoal – permite a identificação ou identificabilidade de uma pessoa física.
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+        }
 
-Dados de uso
+        .btn-ghost {
+            color: var(--brand);
+            font-weight: 600;
+        }
 
-Informações coletadas automaticamente pelo Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica , que podem incluir: data do pedido, o método utilizado para enviar o pedido para o servidor, o tamanho do arquivo recebido em resposta, o código numérico indicando o status da resposta do servidor (resultado bem-sucedido, erro, etc.), o país de origem e as características de o navegador e o sistema operacional utilizados pelo usuário.
+        .hero {
+            text-align: left;
+            padding: 96px 0 48px;
+        }
 
-Usuário
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+            align-items: center;
+        }
 
-O indivíduo usando o Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica  que, a menos que especificado de outra forma, coincide com o Assunto de Dados.
+        h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin: 0 0 16px;
+        }
 
-Assunto de dados
+        .price-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            padding: 8px 16px;
+            border-radius: 999px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            margin-bottom: 16px;
+        }
 
-A pessoa natural a quem os dados pessoais se referem.
+        .hero ul {
+            padding-left: 18px;
+            color: var(--muted);
+        }
 
-Processador de dados (ou supervisor de dados)
+        .highlight {
+            color: var(--brand);
+            font-weight: 600;
+        }
 
-A pessoa física ou jurídica, autoridade pública, agência ou outro órgão que processa Dados Pessoais em nome do Controlador, conforme descrito nesta política de privacidade.
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
 
-Controlador de dados (ou proprietário)
+        .card {
+            background: var(--card);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(15, 23, 42, 0.08);
+        }
 
-A pessoa singular ou colectiva, autoridade pública, agência ou outro organismo que, individualmente ou em conjunto com outros, determina os objectivos e os meios de processamento de Dados Pessoais, incluindo as medidas de segurança relativas ao funcionamento e uso do app. O Controlador de Dados, a menos que especificado de outra forma, é o proprietário do app.
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
 
-Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica (ou este aplicativo)
+        .card p {
+            margin: 0;
+            color: var(--muted);
+        }
 
-Os meios pelos quais os Dados Pessoais do Usuário são coletados e processados.
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
 
-Serviço
+        .section-subtitle {
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
 
-O serviço fornecido por Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica  conforme descrito nos termos relativos (se disponível) e neste site / aplicativo.
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
 
-União Européia (ou UE)
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            background: var(--brand-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--brand-dark);
+            margin-bottom: 12px;
+        }
 
-Salvo indicação em contrário, todas as referências feitas neste documento à União Européia incluem todos os estados membros atuais da União Européia e do Espaço Econômico Europeu.
+        .panel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
 
-Cookies
+        .panel-card {
+            border-radius: 24px;
+            padding: 32px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9));
+            border: 1px solid rgba(15, 23, 42, 0.08);
+        }
 
-Pequenos conjuntos de dados armazenados no dispositivo do usuário.
+        .panel-card h3 {
+            margin-top: 0;
+        }
 
-Informação legal
+        .timeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 16px;
+        }
 
-Esta declaração de privacidade foi preparada com base em disposições de múltiplas legislações, incluindo o art. 13/14 do Regulamento (UE) 2016/679 (Regulamento Geral de Proteção de Dados).
+        .timeline-step {
+            flex: 1;
+            min-width: 180px;
+            padding: 16px;
+            border-radius: 12px;
+            background: var(--brand-soft);
+            font-weight: 600;
+            color: var(--brand-dark);
+            text-align: center;
+        }
 
-Esta política de privacidade refere-se unicamente ao Calculadora de idade gestacional e Calculadora de Crescimento Pediátrica, se não indicado de outra forma neste documento.
+        .faq {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
 
-Última atualização: 14 de Abril de 2025
+        details {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 18px 24px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+        }
 
-</body></html>
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        details[open] summary {
+            color: var(--brand-dark);
+        }
+
+        details p {
+            margin: 12px 0 0;
+            color: var(--muted);
+        }
+
+        .contact-card {
+            margin-top: 32px;
+            padding: 24px;
+            border-radius: 16px;
+            background: var(--brand);
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-card span {
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 64px;
+            padding: 48px 24px 64px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        footer strong {
+            color: var(--text);
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero {
+                text-align: left;
+                padding-top: 48px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-ghost {
+                width: 100%;
+                text-align: center;
+            }
+
+            .timeline {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="shell">
+            <nav>
+                <div class="logo">
+                    Receita em Minutos
+                    <span>R$ 19,99</span>
+                </div>
+                <div class="cta-group">
+                    <a class="btn-ghost" href="#faq">FAQ</a>
+                    <a class="btn-primary" href="#criar-conta">Começar agora</a>
+                </div>
+            </nav>
+            <div class="hero">
+                <div class="hero-grid">
+                    <div>
+                        <div class="price-pill">
+                            Receita pronta em minutos · Todo o Brasil
+                        </div>
+                        <h1>Renove suas receitas médicas sem sair de casa.</h1>
+                        <p class="section-subtitle">
+                            Plataforma 100% digital aprovada por médicos. Receitas simples, especiais,
+                            azuis e amarelas. A partir de R$ <strong>19,99 por receita emitida</strong>.
+                            Entregamos digitalmente e as vias controladas seguem pelos Correios para seu endereço.
+                        </p>
+                        <ul>
+                            <li>Atendimento humanizado via chat, Instagram e WhatsApp.</li>
+                            <li>Pagamentos via PIX, cartão de crédito ou débito, com integração Stripe.</li>
+                            <li>Segurança total com Supabase + armazenamento criptografado de documentos.</li>
+                        </ul>
+                        <div class="cta-group" id="criar-conta">
+                            <a class="btn-primary" href="#">Criar minha conta</a>
+                            <a class="btn-ghost" href="https://instagram.com" target="_blank" rel="noreferrer">Falar no Instagram</a>
+                        </div>
+                    </div>
+                    <div class="card-grid">
+                        <div class="card">
+                            <h3>Receita pronta em minutos</h3>
+                            <p>Processo automatizado + médico responsável garantem agilidade sem pular etapas.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Todo o Brasil</h3>
+                            <p>Documentos digitais imediatos. Para receitas controladas, enviamos via Correios com rastreio.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Fluxo transparente</h3>
+                            <p>Linha do tempo mostra cada etapa: avaliação automática, médico, emissão e envio.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Suporte real</h3>
+                            <p>Dúvidas direto com especialistas via WhatsApp e Instagram, sem robôs engessados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="shell">
+            <h2 class="section-title">Como funciona</h2>
+            <p class="section-subtitle">Processo completo, simples e rápido. Sem filas, ligações ou deslocamentos.</p>
+            <div class="steps">
+                <div class="card">
+                    <div class="step-number">1</div>
+                    <h3>Cadastre-se</h3>
+                    <p>Crie sua conta, confirme o e-mail e escolha o plano pontual (R$19,99) ou pacotes para múltiplas receitas.</p>
+                </div>
+                <div class="card">
+                    <div class="step-number">2</div>
+                    <h3>Envie seus dados</h3>
+                    <p>Informe dados pessoais, condições de saúde, alergias e faça upload da receita anterior ou laudo.</p>
+                </div>
+                <div class="card">
+                    <div class="step-number">3</div>
+                    <h3>Converse com o médico</h3>
+                    <p>Você recebe mensagens no painel ou via WhatsApp para confirmar informações necessárias.</p>
+                </div>
+                <div class="card">
+                    <div class="step-number">4</div>
+                    <h3>Receba sua receita</h3>
+                    <p>Receitas digitais liberadas no painel. Receitas azul/amarela são postadas com rastreio para seu endereço.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="shell">
+            <div class="panel-grid">
+                <div class="panel-card">
+                    <h3>Painel do paciente</h3>
+                    <p class="section-subtitle">Interface intuitiva: informações + pagamento em uma única tela.</p>
+                    <ul>
+                        <li>Upload seguro de documentos e fotos.</li>
+                        <li>Pagamento PIX instantâneo, cartão de crédito ou débito (Stripe).</li>
+                        <li>Linha do tempo com status automáticos.</li>
+                        <li>Histórico de receitas/pedidos antigos sempre disponível para download.</li>
+                    </ul>
+                    <div class="timeline">
+                        <div class="timeline-step">Aguardando avaliação automática</div>
+                        <div class="timeline-step">Aguardando médico</div>
+                        <div class="timeline-step">Aguardando receita</div>
+                        <div class="timeline-step">Receita enviada</div>
+                    </div>
+                </div>
+                <div class="panel-card">
+                    <h3>Painel administrativo (médico)</h3>
+                    <p class="section-subtitle">Pedidos em ordem cronológica para agilizar decisões.</p>
+                    <ul>
+                        <li>Formulário completo: nome, data de nascimento, endereço, condições, alergias, medicamentos.</li>
+                        <li>Uploads organizados (receita prévia, exames, fotos).</li>
+                        <li>Campo “Comentários para o médico” com histórico de mensagens.</li>
+                        <li>Botão “Anexar nova receita” e disparo automático para o paciente.</li>
+                    </ul>
+                    <p>Ao finalizar, o médico registra a emissão, envia a via digital e aciona o envio físico quando necessário.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="shell">
+            <h2 class="section-title">FAQ · Perguntas frequentes</h2>
+            <p class="section-subtitle">Respondemos o que mais nos perguntam diariamente.</p>
+            <div class="faq">
+                <details open>
+                    <summary>Quais tipos de receita vocês renovam?</summary>
+                    <p>Todos os tipos: simples, especiais, controladas (azul e amarela). As controladas são emitidas digitalmente e a via física chega por Correios com rastreio.</p>
+                </details>
+                <details>
+                    <summary>Quanto tempo leva?</summary>
+                    <p>A maioria das receitas sai em poucos minutos após a análise automática. Casos complexos dependem da conversa com o médico, mas raramente passam de 2 horas.</p>
+                </details>
+                <details>
+                    <summary>Posso pagar com PIX?</summary>
+                    <p>Sim! Aceitamos PIX, cartão de crédito e débito por meio do Stripe. Podemos integrar outras carteiras mediante demanda.</p>
+                </details>
+                <details>
+                    <summary>Como guardam meus documentos?</summary>
+                    <p>Armazenamos tudo no Supabase (Postgres + Storage) com criptografia e backups. Também podemos integrar AWS S3 ou Google Cloud Storage para redundância.</p>
+                </details>
+                <details>
+                    <summary>Existe atendimento humano?</summary>
+                    <p>Sim. Temos suporte ativo no Instagram e WhatsApp para dúvidas sobre cadastro, pagamentos e atualização de pedidos.</p>
+                </details>
+                <details>
+                    <summary>Consigo renovar várias receitas?</summary>
+                    <p>Sim. Você pode repetir pedidos no painel e visualizar todos na área “Receitas anteriores”, inclusive baixando PDFs.</p>
+                </details>
+            </div>
+            <div class="contact-card">
+                <div>
+                    <strong>Fale com a equipe agora mesmo</strong><br>
+                    Instagram @receitaemminutos · WhatsApp (11) 99999-9999
+                </div>
+                <a class="btn-primary" href="https://wa.me/5511999999999" target="_blank" rel="noreferrer">Atendimento no WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="shell">
+            <div class="panel-card" style="text-align:center;">
+                <h2 class="section-title">Pronto para liberar sua receita?</h2>
+                <p class="section-subtitle">Clique no botão abaixo, cadastre-se e acompanhe tudo em tempo real.</p>
+                <a class="btn-primary" href="#">Começar em 1 minuto</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="shell">
+            <p>
+                Infraestrutura recomendada:
+                <strong>Supabase</strong> para autenticação e banco de dados,
+                <strong>Supabase Storage</strong> ou <strong>AWS S3</strong> para guardar documentos,
+                <strong>Netlify</strong> para hospedagem estática e
+                <strong>Stripe</strong> (com PIX habilitado via parceiros) para pagamentos cartão/débito/PIX.
+            </p>
+            <p>© 2025 Receita em Minutos · Plataforma digital para renovação de receitas médicas.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
