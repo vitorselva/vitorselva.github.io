@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel do Médico · Receita em Minutos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand: #2563eb;
+            --accent: #a855f7;
+            --bg: #0f172a;
+            --card: #0b1120;
+            --card-light: #111a2c;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --border: rgba(148, 163, 184, 0.25);
+            --success: #22c55e;
+            --warning: #f97316;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.35), transparent 45%),
+                linear-gradient(180deg, #020617, #0f172a);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px clamp(16px, 4vw, 48px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .brand span {
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        a,
+        button {
+            font-family: inherit;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            color: #fff;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .layout {
+            padding: clamp(16px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: minmax(280px, 380px) 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            box-shadow: 0 25px 60px rgba(2, 6, 23, 0.65);
+        }
+
+        h2,
+        h3 {
+            margin: 0 0 12px;
+        }
+
+        p {
+            margin: 0 0 16px;
+            color: var(--muted);
+        }
+
+        .queue {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .queue-item {
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: var(--card-light);
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+
+        .queue-item:hover,
+        .queue-item.active {
+            border-color: var(--brand);
+        }
+
+        .queue-item small {
+            color: var(--muted);
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-pill.success {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--success);
+        }
+
+        .status-pill.warning {
+            background: rgba(249, 115, 22, 0.15);
+            color: var(--warning);
+        }
+
+        .status-pill.danger {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--danger);
+        }
+
+        form {
+            display: grid;
+            gap: 16px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-weight: 600;
+        }
+
+        input,
+        textarea,
+        select {
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 12px 14px;
+            font: inherit;
+            background: rgba(15, 23, 42, 0.7);
+            color: var(--text);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .attachments {
+            border: 1px dashed var(--border);
+            border-radius: 16px;
+            padding: 16px;
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        .attachments ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0;
+        }
+
+        .attachments li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .timeline-step {
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .timeline-step.active {
+            border-color: var(--brand);
+            color: var(--brand);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.75rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 960px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">Receita em Minutos · <span>Painel do Médico</span></div>
+        <div class="actions">
+            <a class="btn btn-ghost" href="index.html">Landing</a>
+            <a class="btn btn-ghost" href="painel-usuario.html">Ver painel paciente</a>
+            <button class="btn btn-primary">Encerrar sessão</button>
+        </div>
+    </header>
+
+    <main class="layout">
+        <aside class="card" aria-label="Fila de pedidos">
+            <h2>Fila cronológica</h2>
+            <p>Pedidos ordenados pelo SLA e prioridade clínica.</p>
+            <div class="queue">
+                <div class="queue-item active">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <strong>REQ-1834 · Maria Souza</strong>
+                        <span class="status-pill warning">Aguard. médico</span>
+                    </div>
+                    <small>Sertralina 50mg · 12 min na fila</small>
+                </div>
+                <div class="queue-item">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <strong>REQ-1835 · Lucas Prado</strong>
+                        <span class="status-pill danger">Revisar docs</span>
+                    </div>
+                    <small>Metilfenidato 10mg · 4 min</small>
+                </div>
+                <div class="queue-item">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                        <strong>REQ-1836 · Ana Lima</strong>
+                        <span class="status-pill success">Pago</span>
+                    </div>
+                    <small>Losartana 50mg · aguardando automático</small>
+                </div>
+            </div>
+            <h3 style="margin-top:32px;">Filtros rápidos</h3>
+            <form>
+                <label>
+                    Status
+                    <select name="statusFilter">
+                        <option value="all">Todos</option>
+                        <option value="waiting">Aguardando médico</option>
+                        <option value="auto">Avaliação automática</option>
+                        <option value="sent">Receita enviada</option>
+                    </select>
+                </label>
+                <label>
+                    Tipo de receita
+                    <select name="typeFilter">
+                        <option value="all">Todos</option>
+                        <option value="simples">Simples</option>
+                        <option value="especial">Especial</option>
+                        <option value="azul">Azul</option>
+                        <option value="amarela">Amarela</option>
+                    </select>
+                </label>
+                <button type="button" class="btn btn-primary">Aplicar filtros</button>
+            </form>
+        </aside>
+
+        <section class="card" aria-label="Detalhes do pedido ativo">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;">
+                <div>
+                    <h2>REQ-1834 · Maria Souza</h2>
+                    <p>Última atualização há 2 minutos · Canal WhatsApp habilitado</p>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-ghost">Chamar no chat</button>
+                    <button class="btn btn-ghost">Enviar mensagem WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="timeline" style="margin:20px 0;">
+                <span class="timeline-step active">Avaliação automática</span>
+                <span class="timeline-step active">Aguardando médico</span>
+                <span class="timeline-step">Emitindo receita</span>
+                <span class="timeline-step">Disponibilizada ao paciente</span>
+                <span class="timeline-step">Envio físico</span>
+            </div>
+
+            <form id="medical-review-form">
+                <div class="split">
+                    <label>
+                        Nome completo
+                        <input type="text" name="fullName" value="Maria Souza" readonly />
+                    </label>
+                    <label>
+                        Data de nascimento
+                        <input type="date" name="birthDate" value="1990-06-12" readonly />
+                    </label>
+                    <label>
+                        Endereço
+                        <input type="text" name="address" value="Rua das Flores, 120 · São Paulo/SP" readonly />
+                    </label>
+                </div>
+
+                <label>
+                    Condições de saúde
+                    <textarea name="healthConditions" readonly>TAG, episódios de insônia. Sem histórico de convulsões.</textarea>
+                </label>
+
+                <label>
+                    Alergias
+                    <textarea name="allergies" readonly>Nenhuma relatada.</textarea>
+                </label>
+
+                <label>
+                    Medicamentos solicitados
+                    <textarea name="medications" readonly>Sertralina 50mg · 1 comprimido/dia</textarea>
+                </label>
+
+                <label>
+                    Comentários do paciente
+                    <textarea name="patientNotes" readonly>Preciso da receita digital e impressa. Última prescrição expirou ontem.</textarea>
+                </label>
+
+                <div class="attachments">
+                    <strong>Anexos enviados</strong>
+                    <ul>
+                        <li>
+                            Receita_anterior.pdf
+                            <button class="btn btn-ghost" type="button">Baixar</button>
+                        </li>
+                        <li>
+                            RG_frente.jpg
+                            <button class="btn btn-ghost" type="button">Baixar</button>
+                        </li>
+                        <li>
+                            Selfie_verificação.png
+                            <button class="btn btn-ghost" type="button">Baixar</button>
+                        </li>
+                    </ul>
+                    <label style="margin-top:12px;">
+                        Adicionar novos anexos
+                        <input type="file" name="doctorUploads" accept=".pdf,.jpg,.png" multiple />
+                    </label>
+                </div>
+
+                <label>
+                    Comentários internos
+                    <textarea name="doctorComments" placeholder="Registre achados clínicos e orientações. Visível apenas para a equipe."></textarea>
+                </label>
+
+                <label>
+                    Status do pedido
+                    <select name="status">
+                        <option value="waiting">Aguardando médico</option>
+                        <option value="prescription">Emitindo receita</option>
+                        <option value="sent">Receita enviada</option>
+                        <option value="posted">Correios postados</option>
+                        <option value="review">Solicitar revisão ao paciente</option>
+                    </select>
+                </label>
+
+                <div class="split">
+                    <label>
+                        Data de validade da receita
+                        <input type="date" name="expirationDate" />
+                    </label>
+                    <label>
+                        Número do lote / CRM
+                        <input type="text" name="crmInfo" placeholder="CRM + UF" />
+                    </label>
+                </div>
+
+                <div class="attachments" style="margin-top:8px;">
+                    <strong>Anexar receita assinada</strong>
+                    <p style="margin:8px 0 12px;">Envie o PDF assinado digitalmente ou imagem de alta resolução.</p>
+                    <input type="file" name="prescriptionFile" accept=".pdf,.jpg,.png" />
+                </div>
+
+            </form>
+
+            <div class="actions" style="margin-top:24px;">
+                <button class="btn btn-ghost">Salvar rascunho</button>
+                <button class="btn btn-primary">Publicar e notificar paciente</button>
+                <button class="btn btn-ghost">Registrar envio Correios</button>
+            </div>
+
+            <h3 style="margin-top:32px;">Logs do pedido</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Evento</th>
+                        <th>Responsável</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10:12</td>
+                        <td>Pagamento confirmado via PIX</td>
+                        <td>Gateway Stripe</td>
+                    </tr>
+                    <tr>
+                        <td>10:14</td>
+                        <td>Checklist automático aprovado</td>
+                        <td>Motor IA</td>
+                    </tr>
+                    <tr>
+                        <td>10:23</td>
+                        <td>Paciente enviou comprovante extra</td>
+                        <td>Maria Souza</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+
+</html>
