@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitor SISATIH</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 12px;
+        font-family: Arial, sans-serif;
+        width: 320px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+      .row {
+        margin-bottom: 6px;
+        font-size: 13px;
+      }
+      .count {
+        font-weight: bold;
+      }
+      .controls {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      button {
+        border: 1px solid #ccc;
+        background: #f5f5f5;
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #ebebeb;
+      }
+      #status {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #444;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Monitor SISATIH</h1>
+    <div class="row">Última atualização: <span id="lastRun">-</span></div>
+    <div class="row">Neurologia: <span class="count" id="count">0</span></div>
+    <div class="row">URL analisada: <span id="url">-</span></div>
+    <div class="controls">
+      <button id="runNow">Verificar agora</button>
+      <button id="toggle">Pausar</button>
+    </div>
+    <div id="status"></div>
+    <script src="popup.js"></script>
+  </body>
+</html>

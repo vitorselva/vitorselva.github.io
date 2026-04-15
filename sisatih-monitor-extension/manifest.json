@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Monitor SISATIH - Neurologia",
+  "description": "Faz login no SISATIH, verifica solicitacoes recebidas e contabiliza especialidade neurologia a cada 5 minutos.",
+  "version": "1.0.0",
+  "permissions": ["alarms", "storage", "tabs"],
+  "host_permissions": ["https://regulacao.saobernardo.sp.gov.br/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Monitor SISATIH"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://regulacao.saobernardo.sp.gov.br/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
